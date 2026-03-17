@@ -122,15 +122,15 @@ def human_move(board):
             if 0 <= row <= 2 and 0 <= col <= 2 and board[row][col] == EMPTY:
                 return row, col
             else:
-                print("⚠️  Invalid move. Cell is either out of range or already taken.")
+                print("Invalid move. Cell is either out of range or already taken.")
         except ValueError:
-            print("⚠️  Please enter numbers only.")
+            print("Please enter numbers only.")
 
 
 def play():
     board = create_board()
     print("=" * 40)
-    print("   Welcome to Tic-Tac-Toe vs AI 🤖")
+    print("   Welcome to Tic-Tac-Toe vs AI ")
     print(f"   You are [{HUMAN}]  |  AI is [{AI}]")
     print("=" * 40)
 
@@ -149,7 +149,7 @@ def play():
             board[r][c] = HUMAN
             turn = AI
         else:
-            print("AI is thinking... 🤔")
+            print("AI is thinking...")
             r, c = best_move(board)
             board[r][c] = AI
             print(f"AI played at row {r+1}, col {c+1}")
@@ -158,11 +158,11 @@ def play():
     print_board(board)
 
     if check_winner(board, HUMAN):
-        print("🎉 Congratulations! You won!")
+        print("Congratulations! You won!")
     elif check_winner(board, AI):
-        print("🤖 AI wins! Better luck next time.")
+        print("AI wins! Better luck next time.")
     else:
-        print("🤝 It's a draw!")
+        print("It's a draw!")
 
 
 if __name__ == "__main__":
@@ -170,5 +170,5 @@ if __name__ == "__main__":
         play()
         again = input("\nPlay again? (y/n): ").strip().lower()
         if again != "y":
-            print("Thanks for playing! 👋")
+            print("Thanks for playing!")
             break
