@@ -60,7 +60,7 @@ def content_based_recommend(movie_title: str, top_n: int = 5):
     # Find index of the given movie
     indices = pd.Series(movies.index, index=movies["title"])
     if movie_title not in indices:
-        print(f"  ⚠️  '{movie_title}' not found in the dataset.")
+        print(f" '{movie_title}' not found in the dataset.")
         return []
 
     idx = indices[movie_title]
@@ -80,7 +80,7 @@ def collaborative_recommend(user_name: str, top_n: int = 5):
     Uses User-Based Cosine Similarity.
     """
     if user_name not in ratings_df.columns:
-        print(f"  ⚠️  User '{user_name}' not found.")
+        print(f"User '{user_name}' not found.")
         return []
 
     # Compute user-user cosine similarity
@@ -142,7 +142,7 @@ def main():
     print("=" * 55)
 
     # ── Content-Based ──────────────────────────────────────
-    print("\n📌 Content-Based Filtering")
+    print("\nContent-Based Filtering")
     print("   'If you liked X, you might also like...'")
     test_movie = "The Matrix"
     recs = content_based_recommend(test_movie, top_n=4)
@@ -151,7 +151,7 @@ def main():
         print(f"   {i}. {r}")
 
     # ── Collaborative ──────────────────────────────────────
-    print("\n📌 Collaborative Filtering (User-Based)")
+    print("\nCollaborative Filtering (User-Based)")
     print("   'Users like you also enjoyed...'")
     test_user = "Alice"
     recs = collaborative_recommend(test_user, top_n=4)
@@ -160,7 +160,7 @@ def main():
         print(f"   {i}. {r}")
 
     # ── Hybrid ─────────────────────────────────────────────
-    print("\n📌 Hybrid Recommendation")
+    print("\nHybrid Recommendation")
     print("   'Combining your taste + similar users'")
     recs = hybrid_recommend("Alice", "Inception", top_n=4)
     print(f"\n   Hybrid recommendations for Alice (liked Inception):")
@@ -169,7 +169,7 @@ def main():
 
     # ── Interactive ────────────────────────────────────────
     print("\n" + "=" * 55)
-    print("  🔍 Try it yourself!")
+    print("Try it yourself!")
     print("=" * 55)
     print("\nAvailable movies:")
     for _, row in movies.iterrows():
